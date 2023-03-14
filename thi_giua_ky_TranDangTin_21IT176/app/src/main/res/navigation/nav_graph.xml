@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/TaskListFragment">
+
+    <fragment
+        android:id="@+id/TaskListFragment"
+        android:name="com.bersyte.noteapp.fragments.TaskListFragment"
+        android:label="Notes"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_TaskListFragment_to_newNoteFragment"
+            app:destination="@id/newNoteFragment" />
+        <action
+            android:id="@+id/action_TaskListFragment_to_TaskDetailFragment"
+            app:destination="@id/TaskDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newNoteFragment"
+        android:name="com.bersyte.noteapp.fragments.NewNoteFragment"
+        android:label="New Note"
+        tools:layout="@layout/fragment_new_note">
+        <action
+            android:id="@+id/action_newNoteFragment_to_TaskListFragment"
+            app:destination="@id/TaskListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/TaskDetailFragment"
+        android:name="com.bersyte.noteapp.TaskDetailFragment"
+        android:label="Update Note"
+        tools:layout="@layout/fragment_update_note">
+        <action
+            android:id="@+id/action_TaskDetailFragment_to_TaskListFragment"
+            app:destination="@id/TaskListFragment" />
+        <argument
+            android:name="note"
+            app:argType="com.bersyte.noteapp.model.Note"
+            app:nullable="true" />
+    </fragment>
+</navigation>
